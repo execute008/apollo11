@@ -1,37 +1,31 @@
-# Core dependencies
+# Core dependencies - optimized for minimal footprint
 requests>=2.31.0
 python-dotenv>=1.0.0
 pydantic>=2.5.0
 pydantic-settings>=2.1.0
 PyYAML>=6.0.1
 
-# Async support
+# Async support (asyncio is built-in, no need to install)
 aiohttp>=3.9.0
-asyncio>=3.4.3
 
 # Logging and utilities
 colorlog>=6.8.0
 tenacity>=8.2.3
 
-# Apollo.io API
-apollo-python-sdk>=0.1.0  # If available, otherwise use requests
-
-# ElevenLabs API
-elevenlabs>=0.2.0
-
-# CLI
+# CLI & TUI
 click>=8.1.7
 rich>=13.7.0
-
-# TUI
 textual>=0.47.0
-textual-dev>=1.2.0
 
-# LLM Integration
+# LLM Integration - lazy loaded only when needed
 openai>=1.10.0
 anthropic>=0.18.0
 
-# Data handling
-pandas>=2.1.0
+# Phone validation only (pandas removed - use stdlib csv, python-dateutil removed - use stdlib datetime)
 phonenumbers>=8.13.0
-python-dateutil>=2.8.2
+
+# Caching for API call optimization (save $$$ on API costs)
+requests-cache>=1.1.1
+
+# Performance monitoring (optional, lightweight)
+psutil>=5.9.0

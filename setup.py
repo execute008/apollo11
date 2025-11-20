@@ -27,17 +27,23 @@ setup(
         "aiohttp>=3.9.0",
         "colorlog>=6.8.0",
         "tenacity>=8.2.3",
-        "elevenlabs>=0.2.0",
         "click>=8.1.7",
         "rich>=13.7.0",
         "textual>=0.47.0",
-        "textual-dev>=1.2.0",
         "openai>=1.10.0",
         "anthropic>=0.18.0",
-        "pandas>=2.1.0",
         "phonenumbers>=8.13.0",
-        "python-dateutil>=2.8.2",
+        "requests-cache>=1.1.1",
+        "psutil>=5.9.0",
     ],
+    extras_require={
+        "dev": [
+            "textual-dev>=1.2.0",
+            "pytest>=7.4.0",
+            "black>=23.0.0",
+            "flake8>=6.0.0",
+        ],
+    },
     entry_points={
         "console_scripts": [
             "apollo-call=src.main:main",
