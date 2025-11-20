@@ -23,6 +23,15 @@ elevenlabs>=0.2.0
 click>=8.1.7
 rich>=13.7.0
 
+# TUI
+textual>=0.47.0
+textual-dev>=1.2.0
+
+# LLM Integration
+openai>=1.10.0
+anthropic>=0.18.0
+
 # Data handling
 pandas>=2.1.0
 phonenumbers>=8.13.0
+python-dateutil>=2.8.2

@@ -2,8 +2,29 @@
 
 A Python-based call agent orchestrator that automatically calls contacts from Apollo.io using ElevenLabs AI agents to schedule appointments. The system uses a swarm pattern to efficiently manage multiple concurrent calls.
 
+## 🎨 NEW: Interactive TUI (Text User Interface)
+
+**Launch the interactive interface:**
+```bash
+python -m src.main tui
+# or
+apollo-tui  # after installation
+```
+
+The TUI provides a guided workflow for creating call campaigns:
+
+1. **📋 Browse & Select Contacts** - Interactive Apollo contact browser with filtering
+2. **📅 Configure Calendar** - Set up appointment time slots
+3. **✍️  AI Script Composer** - Generate professional scripts using Claude or GPT
+4. **🎯 Workflow Creator** - Review and configure complete campaign
+5. **📊 Campaign Monitor** - Real-time progress tracking and results
+
+[See full TUI Guide →](TUI_GUIDE.md)
+
 ## Features
 
+- **🎨 Interactive TUI**: Visual workflow for campaign creation (NEW!)
+- **🤖 AI Script Generation**: Generate call scripts with Claude or GPT (NEW!)
 - **Apollo.io Integration**: Automatically fetch contacts with phone numbers
 - **ElevenLabs AI Calling**: Use conversational AI agents to make calls
 - **Agent Swarm Pattern**: Efficiently manage multiple concurrent calls
@@ -77,6 +98,12 @@ Edit `.env` and add your API keys:
 APOLLO_API_KEY=your_apollo_api_key_here
 ELEVENLABS_API_KEY=your_elevenlabs_api_key_here
 ELEVENLABS_AGENT_ID=your_agent_id_here
+
+# Optional: For AI script generation in TUI
+ANTHROPIC_API_KEY=your_anthropic_key  # For Claude
+# OR
+OPENAI_API_KEY=your_openai_key  # For GPT
+LLM_PROVIDER=anthropic  # or 'openai'
 ```
 
 5. Configure campaign settings in `config.yaml`:
@@ -92,9 +119,36 @@ agent_prompt:
 
 ## Usage
 
+### Interactive TUI (Recommended)
+
+The easiest way to create and manage campaigns is through the interactive TUI:
+
+```bash
+python -m src.main tui
+```
+
+The TUI provides a visual, step-by-step workflow:
+1. Browse and select contacts from Apollo
+2. Configure calendar appointment slots
+3. Generate call scripts using AI (Claude or GPT)
+4. Review and configure campaign settings
+5. Monitor campaign execution in real-time
+
+**[Read the full TUI Guide →](TUI_GUIDE.md)**
+
 ### CLI Commands
 
-The orchestrator provides several CLI commands:
+The orchestrator also provides several CLI commands for scriptable operations:
+
+#### Launch TUI
+
+Launch the interactive Text User Interface:
+
+```bash
+python -m src.main tui
+```
+
+This is the recommended way to create and manage campaigns with a visual workflow.
 
 #### Run a Campaign
 

@@ -30,12 +30,18 @@ setup(
         "elevenlabs>=0.2.0",
         "click>=8.1.7",
         "rich>=13.7.0",
+        "textual>=0.47.0",
+        "textual-dev>=1.2.0",
+        "openai>=1.10.0",
+        "anthropic>=0.18.0",
         "pandas>=2.1.0",
         "phonenumbers>=8.13.0",
+        "python-dateutil>=2.8.2",
     ],
     entry_points={
         "console_scripts": [
             "apollo-call=src.main:main",
+            "apollo-tui=src.tui_main:main",
         ],
     },
     classifiers=[

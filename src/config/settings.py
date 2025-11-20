@@ -50,6 +50,15 @@ class Settings(BaseSettings):
         env="DATABASE_URL"
     )
 
+    # LLM Configuration
+    openai_api_key: Optional[str] = Field(None, env="OPENAI_API_KEY")
+    anthropic_api_key: Optional[str] = Field(None, env="ANTHROPIC_API_KEY")
+    llm_provider: str = Field(default="anthropic", env="LLM_PROVIDER")
+    llm_model: str = Field(
+        default="claude-3-5-sonnet-20241022",
+        env="LLM_MODEL"
+    )
+
     # Config file path
     config_file: Path = Field(
         default=PROJECT_ROOT / "config.yaml",

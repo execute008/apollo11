@@ -49,6 +49,30 @@ def cli(ctx, config, log_level):
 
 
 @cli.command()
+def tui():
+    """Launch interactive TUI (Text User Interface).
+
+    Open an interactive terminal interface with:
+    - Contact browser and batch selector
+    - Calendar configuration
+    - AI-powered script composer
+    - Workflow creator
+    - Real-time campaign monitoring
+    """
+    console.print("[bold green]Launching TUI...[/bold green]")
+
+    try:
+        from .tui.app import CallOrchestratorApp
+        app = CallOrchestratorApp()
+        app.run()
+    except KeyboardInterrupt:
+        console.print("\n[yellow]TUI closed[/yellow]")
+    except Exception as e:
+        console.print(f"[red]Error launching TUI: {e}[/red]")
+        raise
+
+
+@cli.command()
 @click.option(
     "--limit",
     "-n",
