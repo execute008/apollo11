@@ -1,0 +1,89 @@
+# Call Agent Orchestrator Configuration
+
+orchestrator:
+  # Maximum number of concurrent calls
+  max_concurrent_calls: 5
+
+  # Retry configuration
+  retry_attempts: 3
+  retry_delay_seconds: 5
+
+  # Call timeout
+  call_timeout_seconds: 300
+
+  # Batch size for processing contacts
+  batch_size: 50
+
+apollo:
+  # API endpoint
+  base_url: "https://api.apollo.io/v1"
+
+  # Contact filters
+  filters:
+    # Only contacts with phone numbers
+    has_phone: true
+
+    # Exclude contacts with existing appointments
+    has_appointments: false
+
+    # Additional filters (customize as needed)
+    # contact_stage: "lead"
+    # person_titles: ["CEO", "CTO", "Founder"]
+
+elevenlabs:
+  # API endpoint
+  base_url: "https://api.elevenlabs.io/v1"
+
+  # Agent configuration
+  agent:
+    # Default agent settings (can be overridden)
+    voice_id: null
+    stability: 0.5
+    similarity_boost: 0.75
+
+  # Call configuration
+  call:
+    # Maximum call duration in seconds
+    max_duration: 300
+
+    # Whether to record calls
+    record: true
+
+    # Webhook for call status updates
+    webhook_url: null
+
+appointment:
+  # Appointment configuration template
+  # This will be used by the AI agent during calls
+  purpose: "Schedule a product demo"
+  duration_minutes: 30
+  available_times:
+    - "9:00 AM - 12:00 PM EST"
+    - "2:00 PM - 5:00 PM EST"
+
+  # Calendar integration (optional)
+  calendar_type: null  # e.g., "google", "outlook"
+  calendar_id: null
+
+agent_prompt:
+  # Instructions for the ElevenLabs agent
+  system_prompt: |
+    You are a professional sales representative calling to schedule an appointment.
+    Your goal is to:
+    1. Introduce yourself and your company
+    2. Briefly explain the value proposition
+    3. Ask if they would be interested in scheduling a brief call/demo
+    4. If interested, propose available time slots and confirm the appointment
+    5. If not interested, politely thank them and end the call
+
+    Be professional, concise, and respectful of their time.
+    If they ask to be removed from the list, apologize and confirm removal.
+
+  first_message: |
+    Hi, this is an automated call regarding scheduling an appointment.
+    Is this a good time to talk briefly?
+
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/orchestrator.log"

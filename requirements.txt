@@ -1,0 +1,28 @@
+# Core dependencies
+requests>=2.31.0
+python-dotenv>=1.0.0
+pydantic>=2.5.0
+pydantic-settings>=2.1.0
+PyYAML>=6.0.1
+
+# Async support
+aiohttp>=3.9.0
+asyncio>=3.4.3
+
+# Logging and utilities
+colorlog>=6.8.0
+tenacity>=8.2.3
+
+# Apollo.io API
+apollo-python-sdk>=0.1.0  # If available, otherwise use requests
+
+# ElevenLabs API
+elevenlabs>=0.2.0
+
+# CLI
+click>=8.1.7
+rich>=13.7.0
+
+# Data handling
+pandas>=2.1.0
+phonenumbers>=8.13.0
