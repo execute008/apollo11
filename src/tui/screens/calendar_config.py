@@ -2,7 +2,6 @@
 
 from typing import List, Dict, Any
 from datetime import datetime, time, timedelta
-from dateutil import parser as date_parser
 
 from textual.app import ComposeResult
 from textual.screen import Screen
